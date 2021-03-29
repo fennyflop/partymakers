@@ -1,23 +1,32 @@
 import './MakeParty.css';
-import { YMaps, Map, SearchControl } from 'react-yandex-maps';
-import { useState, useRef } from 'react';
+import { YMaps, Map, SearchControl, Placemark } from 'react-yandex-maps';
+import { useState, useRef, useEffect } from 'react';
 
 
 function MakeParty() {
 
-    const searchControlRef = useRef(null);
-
-    function handleYandexSearch(evt) {
-        console.log(evt);
-    }
+    const [query, setQuery] = useState(null);
+    const [coordinates, setCoordinates] = useState([]);
+    const searchRef = useRef(null);
 
     const onResultShow = () => {
-        if (searchControlRef.current) {
-            // Тут вызвать метод который наиболее подходит
-            // https://tech.yandex.ru/maps/jsapi/doc/2.1/ref/reference/control.SearchControl-docpage/
-            console.log(searchControlRef.current.getResultsArray()[0]._geoObjectComponent._geometry._coordinates);
+        if (searchRef.current) {
+            setCoordinates(searchRef.current.getResultsArray()[0]._geoObjectComponent._geometry._coordinates);
         }
     };
+
+    const handleQuery = (evt) => {
+        setQuery(evt.target.value);
+    }
+
+    const handleQuerySubmit = (evt) => {
+        evt.preventDefault();
+        if (query && searchRef.current) return searchRef.current.search(query);
+    }
+
+    useEffect(() => {
+        console.log(coordinates);
+    }, [coordinates])
 
     return (
         <section className="maker">
@@ -29,14 +38,18 @@ function MakeParty() {
                         center: [55.751574, 37.573856],
                         zoom: 9,
                     }}
+                    controls='geolocationControl'
                 >
                     <SearchControl
-                        instanceRef={searchControlRef}
-                        onClear={() => console.log("clear")}
+                        instanceRef={ref => {
+                            if (ref) searchRef.current = ref;
+                        }}
                         onResultShow={onResultShow}
-                        options={{
-                            floatIndex: 100,
-                        }} />
+                        option={{
+                            noPopup: false,
+                            zoomMargin: 15,
+                        }}
+                    />
                 </Map>
             </YMaps>
         </section >

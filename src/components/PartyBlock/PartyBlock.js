@@ -13,7 +13,6 @@ function PartyBlock({ selectedParty, handleReturn }) {
                 <li className="partyblock__info">{selectedParty.partyPrice || ''} RUB</li>
             </ul>
             <button className="partyblock__button">JOIN</button>
-            <button className="partyblock__button" onClick={() => { handleReturn() }}>RETURN</button>
         </article>
     );
 }

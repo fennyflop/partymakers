@@ -17,8 +17,9 @@ const PartyMark = ({ party, handleSelectParty }) => {
         <Placemark
             defaultGeometry={party.coordinates}
             options={{
-                iconColor: isSelected ? 'red' : 'black',
-                preset: 'islands#redCircleDotIcon'
+                iconColor: 'red',
+                preset: 'islands#redCircleDotIcon',
+
             }}
             onClick={handlePartyClick}
         />
