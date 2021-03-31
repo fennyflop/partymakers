@@ -1,14 +1,19 @@
 .query {
-    margin: 20px;
-
+    margin: 20px 0 0 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    width: fit-content;
+    max-width: 311.5px;
+}
+.query__form {
     height: 48px;
+    width: 100%;
     display: flex;
     align-items: center;
     width: fit-content;
     box-sizing: border-box;
     padding: 5px 5px 5px 10px;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 .query__input {
     height: 100%;
@@ -39,4 +44,19 @@
 .query__clear {
     border-left: 2px solid rgba(0, 0, 0, .2);
     background-image: url('../../images/clearQuery.svg');
+}
+.query__results {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 5px 5px 5px 10px;
+    background-color: white;
+    list-style-type: none;
+    border-top: 2px solid rgba(0, 0, 0, .2);
+}
+.query__result {
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-break: normal;
 }

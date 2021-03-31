@@ -1,6 +1,7 @@
 import SelectParty from '../SelectParty/SelectParty';
 import MakeParty from '../MakeParty/MakeParty';
 import QueryInput from '../QueryInput/QueryInput';
+import QueryFilter from '../QueryFilter/QueryFilter';
 import { Route } from 'react-router-dom';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Route path="/query">
         <QueryInput />
+        <QueryFilter />
       </Route>
       <Route path="/select">
         <SelectParty />
