@@ -42,21 +42,22 @@
     background-image: url('../../images/querySearch.svg');
 }
 .query__clear {
-    border-left: 2px solid rgba(0, 0, 0, .2);
+    border-left: 1px solid rgba(0, 0, 0, .2);
     background-image: url('../../images/clearQuery.svg');
 }
 .query__results {
+    height: fit-content; /* Sliding down */
     margin: 0;
+    padding: 5px 0;
     box-sizing: border-box;
-    padding: 5px 5px 5px 10px;
     background-color: white;
     list-style-type: none;
-    border-top: 2px solid rgba(0, 0, 0, .2);
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .2s ease-in-out;
 }
-.query__result {
-    padding: 5px 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    word-break: normal;
+.query__results-opened {
+    display: flex;
 }

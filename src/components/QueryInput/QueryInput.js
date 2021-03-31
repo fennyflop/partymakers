@@ -1,37 +1,71 @@
 import './QueryInput.css';
+import QueryResult from '../QueryResult/QueryResult';
 import queryIcon from '../../images/queryIcon.svg';
-import { YMaps, Map, SearchControl, Placemark } from 'react-yandex-maps';
+import QueryLoading from '../QueryLoading/QueryLoading';
+import { YMaps, Map, SearchControl } from 'react-yandex-maps';
 import { useState, useRef, useEffect } from 'react';
 
 const QueryInput = () => {
 
     const searchRef = useRef(null);
+    const [isSearching, setIsSearching] = useState(false);
+    const [resultsOpen, setResultsOpen] = useState(false);
+    const [resultsArray, setResultsArray] = useState([]);
     const [queryText, setQueryText] = useState('');
 
     function handleQueryChange(evt) {
         setQueryText(evt.target.value);
     }
 
+    function handleQueryClear() {
+        setQueryText('');
+        setResultsOpen(false)
+    }
+
     function handleSearchQuery(evt) {
         evt.preventDefault();
+        if (searchRef.current) return handleSearch();
+    }
+
+    function handlePlacePick(placeData) {
+        if (searchRef.current) {
+            const generatedQuery = placeData.join(", ");
+            setQueryText(generatedQuery);
+            setResultsOpen(false);
+            searchRef.current.search(generatedQuery)
+                .then(() => {
+                    console.log('done');
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    }
+
+    function handleSearch() {
+        setIsSearching(true);
         searchRef.current.search(queryText)
             .then(() => {
                 const geoResultsArray = searchRef.current.getResultsArray();
-                if (geoResultsArray.length) return geoResultsArray.map((e) => { return e.properties._data.description; });
-                return Promise.reject("Ошибка")
+                if (geoResultsArray.length) return setResultsArray(geoResultsArray.map((e) => { return [e.properties._data.name, e.properties._data.description]; }));
+                return Promise.reject("Ничего не найдено")
             })
             .catch((err) => {
-                console.log(err);
+                setResultsArray([]);
+            })
+            .then(() => {
+                setResultsOpen(true);
+                setIsSearching(false);
             })
     }
 
-    function handleQueryClear() {
-        setQueryText('');
-    }
-
-    function onResultsLoad(evt) {
-        console.log(evt);
-    }
+    useEffect(() => {
+        // AUTO CLOSE FUNCTION
+        // setTimeout(() => {
+        //     setResultsOpen(false);
+        // }, 10000)
+        if (searchRef.current) return handleSearch();
+    }, [queryText])
 
     return (
         <>
@@ -51,11 +85,18 @@ const QueryInput = () => {
                     <button className="query__button query__search" type="submit"></button>
                     <button className="query__button query__clear" onClick={handleQueryClear} type="reset"></button>
                 </form>
-                <ul className="query__results">
-                    <li className="query__result">Очень длинный адресс на улице.</li>
-                    <li className="query__result">Очень длинный адресс на улице.</li>
-                    <li className="query__result">Очень длинный адресс на улице.</li>
-                    <li className="query__result">Очень длинный адресс на улице олег. Очень длинный адресс на улице олег. Очень длинный адресс на улице олег</li>
+                <ul className={`query__results ${resultsOpen && 'query__results-opened'}`}>
+                    {
+                        isSearching ?
+                            <QueryLoading />
+                            :
+                            resultsArray.length ?
+                                resultsArray.map((e, i) => {
+                                    return <QueryResult resultData={e} handlePlacePick={handlePlacePick} key={i} />
+                                })
+                                :
+                                <QueryResult resultData={['😔 Ничего не найдено']} />
+                    }
                 </ul>
             </main>
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
@@ -76,7 +117,6 @@ const QueryInput = () => {
                             noPopup: false,
                             zoomMargin: 15,
                         }}
-                        onLoad={onResultsLoad}
                     />
                 </Map>
             </YMaps>
