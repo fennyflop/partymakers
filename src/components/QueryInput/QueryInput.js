@@ -1,9 +1,6 @@
 import './QueryInput.css';
-import QueryResult from '../QueryResult/QueryResult';
 import queryIcon from '../../images/queryIcon.svg';
-import QueryLoading from '../QueryLoading/QueryLoading';
-import { YMaps, Map, SearchControl } from 'react-yandex-maps';
-import { useState, useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const QueryInput = ({ handleSearchQuery, handleCloseResults, queryText, handleQueryChange }) => {
 

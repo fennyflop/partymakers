@@ -1,0 +1,16 @@
+.query__results {
+    height: fit-content; /* Sliding down */
+    margin: 0;
+    padding: 5px 0;
+    box-sizing: border-box;
+    background-color: white;
+    list-style-type: none;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .2s ease-in-out;
+}
+.query__results-opened {
+    display: flex;
+}

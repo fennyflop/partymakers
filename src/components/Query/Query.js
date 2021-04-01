@@ -1,7 +1,4 @@
 import './Query.css';
-import QueryResult from '../QueryResult/QueryResult';
-import queryIcon from '../../images/queryIcon.svg';
-import QueryLoading from '../QueryLoading/QueryLoading';
 import { YMaps, Map, SearchControl } from 'react-yandex-maps';
 import { useState, useRef, useEffect } from 'react';
 import QueryResults from '../QueryResults/QueryResults';
@@ -27,13 +24,11 @@ const Query = () => {
 
     function handlePlacePick(placeData) {
         if (!searchRef.current) return;
+        console.log('PICKING A PLACE');
         const generatedQuery = placeData.join(", ");
-        setQueryText(generatedQuery);
+        console.log(generatedQuery);
         setResultsOpen(false);
-        searchRef.current.search(generatedQuery)
-            .catch((err) => {
-                console.log(err);
-            })
+        setQueryText(generatedQuery);
     }
 
     function handleSearchQuery(queryText) {
@@ -54,10 +49,6 @@ const Query = () => {
                 setIsSearching(false);
             })
     }
-
-    useEffect(() => {
-        console.log(resultsArray);
-    }, [resultsArray])
 
     return (
         <>
@@ -91,7 +82,9 @@ const Query = () => {
                             if (ref) searchRef.current = ref;
                         }}
                         options={{
-                            size: 'small'
+                            size: 'small',
+                            zoomMargin: 9,
+                            kind: 'locality',
                         }}
                     />
                 </Map>

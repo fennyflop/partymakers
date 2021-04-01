@@ -1,0 +1,12 @@
+.query {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .8);
+    width: fit-content;
+    max-width: 311.5px;
+    background-color: white;
+    z-index: 100;
+}
