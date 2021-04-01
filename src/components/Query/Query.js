@@ -1,6 +1,7 @@
 import './Query.css';
 import { YMaps, Map, SearchControl } from 'react-yandex-maps';
 import { useState, useRef, useEffect } from 'react';
+import SlideBar from '../SlideBar/SlideBar';
 import QueryResults from '../QueryResults/QueryResults';
 import QueryInput from '../QueryInput/QueryInput';
 
@@ -24,9 +25,7 @@ const Query = () => {
 
     function handlePlacePick(placeData) {
         if (!searchRef.current) return;
-        console.log('PICKING A PLACE');
         const generatedQuery = placeData.join(", ");
-        console.log(generatedQuery);
         setResultsOpen(false);
         setQueryText(generatedQuery);
     }
@@ -67,6 +66,7 @@ const Query = () => {
                     queryText={queryText}
                 />
             </main>
+            <SlideBar />
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
                 <Map
                     width={'100%'}
