@@ -1,15 +1,14 @@
 import SelectParty from '../SelectParty/SelectParty';
 import MakeParty from '../MakeParty/MakeParty';
 import QueryInput from '../QueryInput/QueryInput';
-import QueryFilter from '../QueryFilter/QueryFilter';
+import Query from '../Query/Query';
 import { Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <Route path="/query">
-        <QueryInput />
-        <QueryFilter />
+        <Query />
       </Route>
       <Route path="/select">
         <SelectParty />
