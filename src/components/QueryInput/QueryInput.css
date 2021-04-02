@@ -3,16 +3,22 @@
     width: 100%;
     display: flex;
     align-items: center;
-    width: fit-content;
     box-sizing: border-box;
     padding: 5px 5px 5px 10px;
 }
 .query__input {
     height: 100%;
+    width: 100%;
     padding: 5px 10px;
     box-sizing: border-box;
     border: none;
     outline: none;
+    background-color: transparent;
+    color: black;
+}
+.query__input::placeholder {
+    color: black;
+    opacity: 1;
 }
 .query__button {
     height: 80%;

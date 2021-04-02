@@ -1,10 +1,9 @@
 import './SlideBar.css';
-import SlidebarHeader from '../SlidebarHeader/SlidebarHeader';
 
-const SlideBar = () => {
+const SlideBar = (props) => {
     return (
         <section className="slidebar">
-            <SlidebarHeader />
+            {props.children}
         </section>
     );
 }

@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import SlideBar from '../SlideBar/SlideBar';
 import QueryResults from '../QueryResults/QueryResults';
 import QueryInput from '../QueryInput/QueryInput';
+import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
+import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 
 const Query = () => {
     const searchRef = useRef(null);
@@ -51,22 +53,25 @@ const Query = () => {
 
     return (
         <>
-            <main className="query">
-                <QueryInput
-                    handleCloseResults={handleClearQuery}
-                    handleSearchQuery={handleSearchQuery}
-                    queryText={queryText}
-                    handleQueryChange={handleQueryChange}
-                />
-                <QueryResults
-                    resultsArray={resultsArray}
-                    isQuerySearching={isSearching}
-                    resultsOpen={resultsOpen}
-                    handlePlacePick={handlePlacePick}
-                    queryText={queryText}
-                />
-            </main>
-            <SlideBar />
+            <SlideBar>
+                <main className="query">
+                    <QueryInput
+                        handleCloseResults={handleClearQuery}
+                        handleSearchQuery={handleSearchQuery}
+                        queryText={queryText}
+                        handleQueryChange={handleQueryChange}
+                    />
+                    <QueryResults
+                        resultsArray={resultsArray}
+                        isQuerySearching={isSearching}
+                        resultsOpen={resultsOpen}
+                        handlePlacePick={handlePlacePick}
+                        queryText={queryText}
+                    />
+                </main>
+                <SlidebarInfo />
+                <SlidebarFooter />
+            </SlideBar>
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
                 <Map
                     width={'100%'}
