@@ -1,5 +1,5 @@
 .query__results {
-    max-width: 340px;
+    max-width: 100%;
     height: fit-content; /* Sliding down */
     margin: 0;
     padding: 5px 0;

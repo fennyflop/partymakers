@@ -6,6 +6,7 @@ import QueryResults from '../QueryResults/QueryResults';
 import QueryInput from '../QueryInput/QueryInput';
 import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
+import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 
 const Query = () => {
     const searchRef = useRef(null);
@@ -13,6 +14,7 @@ const Query = () => {
     const [isSearching, setIsSearching] = useState(false);
     const [resultsOpen, setResultsOpen] = useState(false);
     const [resultsArray, setResultsArray] = useState([]);
+    const [selectedPlaceData, setSelectedPlaceData] = useState([]);
 
     const [queryText, setQueryText] = useState('');
 
@@ -27,9 +29,14 @@ const Query = () => {
 
     function handlePlacePick(placeData) {
         if (!searchRef.current) return;
-        const generatedQuery = placeData.join(", ");
-        setResultsOpen(false);
+        setSelectedPlaceData(placeData);
+        const generatedQuery = placeData[1] + ', ' + placeData[2];
         setQueryText(generatedQuery);
+    }
+
+    function handleResultShow(evt) {
+        console.log(evt);
+        setResultsOpen(false);
     }
 
     function handleSearchQuery(queryText) {
@@ -38,8 +45,7 @@ const Query = () => {
         searchRef.current.search(queryText)
             .then(() => {
                 const geoResultsArray = searchRef.current.getResultsArray();
-                console.log(geoResultsArray.map((e) => { return [e.properties._data.name, e.properties._data.description]; }));
-                if (geoResultsArray.length) return setResultsArray(geoResultsArray.map((e) => { return [e.properties._data.name, e.properties._data.description]; }));
+                if (geoResultsArray.length) return setResultsArray(geoResultsArray.map((e) => { return [e.geometry._coordinates, e.properties._data.name, e.properties._data.description]; }));
                 return Promise.reject("Ничего не найдено")
             })
             .catch(() => {
@@ -69,7 +75,8 @@ const Query = () => {
                         queryText={queryText}
                     />
                 </main>
-                <SlidebarInfo />
+                <SlidebarInfo placeData={selectedPlaceData} />
+                <SlidebarFieldset name='partyTitle' label="Название тусы" />
                 <SlidebarFooter />
             </SlideBar>
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
@@ -83,6 +90,7 @@ const Query = () => {
                     controls='geolocationControl'
                 >
                     <SearchControl
+                        onResultShow={handleResultShow}
                         instanceRef={ref => {
                             if (ref) searchRef.current = ref;
                         }}

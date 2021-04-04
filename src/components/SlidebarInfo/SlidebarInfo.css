@@ -1,5 +1,6 @@
 .slidebar-info {
     width: 100%;
+    max-width: 500px;
     padding: 10px 5%;
     box-sizing: border-box;
     background-color: white;
@@ -39,4 +40,17 @@
     width: 16px;
     height: 16px;
     margin: auto 0 0 5px;
+}
+.slidebar-info__input-focus {
+    margin: 10px 0 0;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #198cff;
+    border-radius: 10px;
+    transition: opacity .1s ease-in-out;
+}
+.slidebar-info__description-hidden {
+    display: none;
 }
