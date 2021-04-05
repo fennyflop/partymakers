@@ -1,20 +1,17 @@
+import './App.css';
 import SelectParty from '../SelectParty/SelectParty';
 import MakeParty from '../MakeParty/MakeParty';
-import QueryInput from '../QueryInput/QueryInput';
-import Query from '../Query/Query';
+import PartyMaker from '../PartyMaker/PartyMaker';
 import { Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <Route path="/query">
-        <Query />
-      </Route>
       <Route path="/select">
         <SelectParty />
       </Route>
-      <Route path="/make">
-        <MakeParty />
+      <Route path="/maker">
+        <PartyMaker />
       </Route>
     </>
   );

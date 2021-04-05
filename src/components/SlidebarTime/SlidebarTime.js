@@ -1,7 +1,7 @@
 import './SlidebarTime.css';
 import { useEffect, useRef, useState } from 'react';
 
-const SlidebarTime = ({ handleChange, hours, minutes }) => {
+const SlidebarTime = ({ handleChange, hours, minutes, error }) => {
 
     const minuteInput = useRef(null);
     const [isActive, setIsActive] = useState(false);
@@ -16,34 +16,36 @@ const SlidebarTime = ({ handleChange, hours, minutes }) => {
     }, [hours]);
 
     return (
-        <fieldset className="slidebar-time">
-            <input
-                type="number"
-                name="hours"
-                min={0}
-                max={23}
-                value={hours || ''}
-                className="slidebar-fieldset__input-time"
-                onChange={handleChange}
-                autoComplete="off"
-            />
-            <input
-                min={0}
-                max={59}
-                type="number"
-                name="minutes"
-                value={minutes || ''}
-                className="slidebar-fieldset__input-time"
-                onChange={handleChange}
-                autoComplete="off"
-                ref={ref => {
-                    if (ref) minuteInput.current = ref;
-                }}
-            />
-            <label className={`slidebar-fieldset__label ${isActive && "slidebar-fieldset__label-active"}`} htmlFor="time" >
-                Выбранное время
-            </label>
-        </fieldset>
+        <>
+            <fieldset className="slidebar-time">
+                <input
+                    type="number"
+                    name="hours"
+                    min={0}
+                    max={23}
+                    value={hours || ''}
+                    className="slidebar-fieldset__input-time"
+                    onChange={handleChange}
+                    autoComplete="off"
+                />
+                <input
+                    min={0}
+                    max={59}
+                    type="number"
+                    name="minutes"
+                    value={minutes || ''}
+                    className="slidebar-fieldset__input-time"
+                    onChange={handleChange}
+                    autoComplete="off"
+                    ref={ref => {
+                        if (ref) minuteInput.current = ref;
+                    }}
+                />
+                <label className={`slidebar-fieldset__label-time ${isActive && "slidebar-fieldset__label-time-active"}`} htmlFor="time" >
+                    Выбранное время
+                </label>
+            </fieldset>
+        </>
     );
 }
 

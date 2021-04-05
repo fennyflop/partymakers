@@ -1,8 +1,8 @@
 .slidebar-time {
     width: 100%;
-    padding: 0 5%;
+    padding: 0 calc(5% + 14px);
     box-sizing: border-box;
-    margin: 34px 0 0;
+    margin: 20px 0 0;
     border: 0;
     outline: 0;
     display: flex;
@@ -24,20 +24,30 @@
     outline: none;
     text-align: center;
 }
+.slidebar-fieldset__label-time {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #999;
+    pointer-events: none; 
+    position: absolute;
+    transform: translate(0, 26px) scale(1);
+
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+}
 .slidebar-fieldset__input-time:focus {
     border-bottom: 1px solid #198cff;
 }
 .slidebar-fieldset__input-time:first-of-type {
-    margin-left: 5px;
     margin-right: 5px;
 }
 .slidebar-fieldset__input-error {
     border-bottom: 1px solid #ee3465;
 }
-.slidebar-time:focus-within .slidebar-fieldset__label {
+.slidebar-time:focus-within .slidebar-fieldset__label-time {
     transform: translate(0, 12px) scale(0.75);
 }
-.slidebar-time .slidebar-fieldset__label-active {
+.slidebar-time .slidebar-fieldset__label-time-active {
     transform: translate(0, 12px) scale(0.75);
 }
 .slidebar-fieldset__input-time::-webkit-outer-spin-button,

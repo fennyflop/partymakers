@@ -1,4 +1,4 @@
-import './Query.css';
+import './PartyMaker.css';
 import { YMaps, Map, SearchControl } from 'react-yandex-maps';
 import { useState, useRef, useEffect } from 'react';
 import SlideBar from '../SlideBar/SlideBar';
@@ -10,7 +10,7 @@ import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 import { useFormWithValidation } from '../../utils/useForm';
 
-const Query = () => {
+const PartyMaker = () => {
     const searchRef = useRef(null);
 
     const [isSearching, setIsSearching] = useState(false);
@@ -39,7 +39,6 @@ const Query = () => {
     }
 
     function handleResultShow(evt) {
-        console.log(evt);
         setResultsOpen(false);
     }
 
@@ -61,6 +60,10 @@ const Query = () => {
             })
     }
 
+    useEffect(() => {
+        console.log(errors.hours)
+    }, [errors])
+
     return (
         <>
             <SlideBar>
@@ -80,8 +83,10 @@ const Query = () => {
                     />
                 </main>
                 <form className="query__party-form">
-                    <SlidebarInfo placeData={selectedPlaceData} />
+                    <SlidebarInfo placeData={selectedPlaceData} error={errors.hours} />
                     <SlidebarTime handleChange={handleChange} hours={values.hours} minutes={values.minutes} />
+                    <p className="slidebar-fieldset__error-message">{errors.hours}</p>
+                    <p className="slidebar-fieldset__error-message">{errors.minutes}</p>
                     <SlidebarFieldset handleChange={handleChange} value={values.partyTitle} name='partyTitle' label="Название тусы" type="text" error={errors.partyTitle} isRequired={true} />
                     <SlidebarFieldset handleChange={handleChange} value={values.minAge} name='minAge' label="Входной возраст" type="number" min={0} error={errors.minAge} isRequired={true} />
                     <SlidebarFieldset handleChange={handleChange} value={values.cost} name='cost' label="Стоимость RUB" type="number" min={0} error={errors.cost} isRequired={false} />
@@ -91,13 +96,12 @@ const Query = () => {
             </SlideBar>
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
                 <Map
-                    width={'100%'}
+                    width={'10  0%'}
                     height={'100vh'}
                     defaultState={{
                         center: [55.751574, 37.573856],
                         zoom: 9,
                     }}
-                    controls='geolocationControl'
                 >
                     <SearchControl
                         onResultShow={handleResultShow}
@@ -116,4 +120,4 @@ const Query = () => {
     );
 }
 
-export default Query;
+export default PartyMaker;
