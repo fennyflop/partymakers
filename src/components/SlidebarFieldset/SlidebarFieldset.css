@@ -36,6 +36,14 @@
     transform-origin: top left;
     transition: all 0.2s ease-out;
 }
+.slidebar-fieldset__error-message {
+    color: crimson;
+    font-size: 12px;
+    margin-left: 5%;
+}
+.slidebar-fieldset__input-error {
+    border-bottom: 1px solid #ee3465;
+}
 .slidebar-fieldset:focus-within {
     border-bottom: 1px solid #198cff;
 }
@@ -44,4 +52,9 @@
 }
 .slidebar-fieldset .slidebar-fieldset__label-active {
     transform: translate(0, 12px) scale(0.75);
+}
+.slidebar-fieldset__input::-webkit-outer-spin-button,
+.slidebar-fieldset__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -5,8 +5,10 @@ import SlideBar from '../SlideBar/SlideBar';
 import QueryResults from '../QueryResults/QueryResults';
 import QueryInput from '../QueryInput/QueryInput';
 import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
+import SlidebarTime from '../SlidebarTime/SlidebarTime';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
+import { useFormWithValidation } from '../../utils/useForm';
 
 const Query = () => {
     const searchRef = useRef(null);
@@ -17,6 +19,8 @@ const Query = () => {
     const [selectedPlaceData, setSelectedPlaceData] = useState([]);
 
     const [queryText, setQueryText] = useState('');
+
+    const { values, handleChange, customHandleChange, errors, isValid, resetForm } = useFormWithValidation();
 
     function handleQueryChange(evt) {
         setQueryText(evt.target.value);
@@ -75,9 +79,15 @@ const Query = () => {
                         queryText={queryText}
                     />
                 </main>
-                <SlidebarInfo placeData={selectedPlaceData} />
-                <SlidebarFieldset name='partyTitle' label="Название тусы" />
-                <SlidebarFooter />
+                <form className="query__party-form">
+                    <SlidebarInfo placeData={selectedPlaceData} />
+                    <SlidebarTime handleChange={handleChange} hours={values.hours} minutes={values.minutes} />
+                    <SlidebarFieldset handleChange={handleChange} value={values.partyTitle} name='partyTitle' label="Название тусы" type="text" error={errors.partyTitle} isRequired={true} />
+                    <SlidebarFieldset handleChange={handleChange} value={values.minAge} name='minAge' label="Входной возраст" type="number" min={0} error={errors.minAge} isRequired={true} />
+                    <SlidebarFieldset handleChange={handleChange} value={values.cost} name='cost' label="Стоимость RUB" type="number" min={0} error={errors.cost} isRequired={false} />
+                    <button className="query__party-submit" disabled={!(isValid && selectedPlaceData.length)}>Создать</button>
+                    <SlidebarFooter />
+                </form>
             </SlideBar>
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
                 <Map

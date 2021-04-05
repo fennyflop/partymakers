@@ -9,3 +9,26 @@
     background-color: white;
     z-index: 100;
 }
+.query__party-form {
+    width: 100%;
+}
+.query__party-submit {
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px 20px;
+    background-color: #198cff;
+    color: white;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    transition: all .1s ease-in-out;
+}
+.query__party-submit:hover {
+    cursor: pointer;
+}
+.query__party-submit:disabled {
+    opacity: .8;
+}
+.query__party-submit:disabled:hover {
+    cursor: not-allowed;
+}
