@@ -42,7 +42,7 @@ const SlidebarTime = ({ handleChange, hours, minutes, error }) => {
                     }}
                 />
                 <label className={`slidebar-fieldset__label-time ${isActive && "slidebar-fieldset__label-time-active"}`} htmlFor="time" >
-                    Выбранное время
+                    Выбранное время 🕓
                 </label>
             </fieldset>
         </>

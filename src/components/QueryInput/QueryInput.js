@@ -1,5 +1,6 @@
 import './QueryInput.css';
-import queryIcon from '../../images/queryIcon.svg';
+// import queryIcon from '../../images/queryIcon.svg';
+import Y1 from '../../images/Y1.svg';
 import { useEffect } from 'react';
 
 const QueryInput = ({ handleSearchQuery, handleCloseResults, queryText, handleQueryChange }) => {
@@ -20,7 +21,7 @@ const QueryInput = ({ handleSearchQuery, handleCloseResults, queryText, handleQu
     return (
         <>
             <form className="query__form" onSubmit={handleQuerySubmit}>
-                <img className="query__icon" src={queryIcon} alt="queryIcon" draggable="false" />
+                <img className="query__icon" src={Y1} alt="queryIcon" draggable="false" />
                 <input
                     className="query__input"
                     autoComplete="off"
