@@ -60,10 +60,6 @@ const PartyMaker = () => {
             })
     }
 
-    useEffect(() => {
-        console.log(errors.hours)
-    }, [errors])
-
     return (
         <>
             <SlideBar>
@@ -96,7 +92,7 @@ const PartyMaker = () => {
             </SlideBar>
             <YMaps query={{ apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
                 <Map
-                    width={'10  0%'}
+                    width={'100%'}
                     height={'100vh'}
                     defaultState={{
                         center: [55.751574, 37.573856],

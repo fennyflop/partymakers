@@ -1,6 +1,6 @@
 .query {
     border-radius: 1px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     width: 100%;
     position: absolute;

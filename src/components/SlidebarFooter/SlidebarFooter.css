@@ -4,6 +4,8 @@
     margin: 20px 0 0;
 }
 .slidebar-footer__links {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     margin: 0;
     padding: 5px 5px 5px 5%;
@@ -13,7 +15,12 @@
     line-height: 16px;
     color: #4d4d4d;
     padding: 12px 0;
+    width: fit-content;
     transition: color .1s ease-in-out;
+    text-decoration: none;
+}
+.slidebar-footer__link-active {
+    text-decoration: underline;
 }
 .slidebar-footer__link:hover {
     cursor: pointer;

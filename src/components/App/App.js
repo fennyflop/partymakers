@@ -7,10 +7,10 @@ import { Route } from 'react-router-dom';
 function App() {
   return (
     <>
-      <Route path="/select">
+      <Route path="/search">
         <SelectParty />
       </Route>
-      <Route path="/maker">
+      <Route path="/make">
         <PartyMaker />
       </Route>
     </>

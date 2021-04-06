@@ -28,7 +28,7 @@ const QueryInput = ({ handleSearchQuery, handleCloseResults, queryText, handleQu
                     required
                     name="query"
                     type="text"
-                    placeholder="Поиск туссовки"
+                    placeholder="Найти место"
                     onChange={handleQueryChange}
                     value={queryText}
                 />
