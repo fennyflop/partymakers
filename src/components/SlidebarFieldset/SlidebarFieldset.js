@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './SlidebarFieldset.css'
 
-const SlidebarFieldset = ({ label, name, type, min, handleChange, value, error, isRequired }) => {
+const SlidebarFieldset = ({ label, name, type, min, handleChange, value, error, isRequired, max }) => {
 
     const [isActive, setIsActive] = useState(false);
 
@@ -16,13 +16,14 @@ const SlidebarFieldset = ({ label, name, type, min, handleChange, value, error, 
                     type={type || 'text'}
                     name={name}
                     min={min}
+                    max={max}
                     value={value || ''}
                     className="slidebar-fieldset__input"
                     onChange={handleChange}
                     autoComplete="off"
                     required={isRequired}
                 />
-                <label className={`slidebar-fieldset__label slidebar-fieldset__label-time ${isActive && "slidebar-fieldset__label-active"}`} htmlFor={name} >
+                <label className={`slidebar-fieldset__label slidebar-fieldset__label-time ${(isActive && value) && "slidebar-fieldset__label-active"}`} htmlFor={name} >
                     {label}
                 </label>
             </fieldset>

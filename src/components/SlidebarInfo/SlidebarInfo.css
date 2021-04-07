@@ -3,8 +3,9 @@
     max-width: 500px;
     padding: 10px 5%;
     box-sizing: border-box;
-    background-color: white;
+    background-color: #ffffff;
     margin-top: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
 }
 .slidebar-info__title {
     font-size: 20px;

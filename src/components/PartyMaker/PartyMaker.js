@@ -38,7 +38,7 @@ const PartyMaker = () => {
         setQueryText(generatedQuery);
     }
 
-    function handleResultShow(evt) {
+    function handleResultShow() {
         setResultsOpen(false);
     }
 
@@ -84,7 +84,7 @@ const PartyMaker = () => {
                     <p className="slidebar-fieldset__error-message">{errors.hours}</p>
                     <p className="slidebar-fieldset__error-message">{errors.minutes}</p>
                     <SlidebarFieldset handleChange={handleChange} value={values.partyTitle} name='partyTitle' label="Название тусы 👀" type="text" error={errors.partyTitle} isRequired={true} />
-                    <SlidebarFieldset handleChange={handleChange} value={values.minAge} name='minAge' label="Входной возраст 🤪" type="number" min={0} error={errors.minAge} isRequired={true} />
+                    <SlidebarFieldset handleChange={handleChange} value={values.minAge} name='minAge' label="Входной возраст 🤪" type="number" min={0} max={150} error={errors.minAge} isRequired={true} />
                     <SlidebarFieldset handleChange={handleChange} value={values.cost} name='cost' label="Стоимость RUB 🤑" type="number" min={0} error={errors.cost} isRequired={false} />
                     <button className="query__party-submit" disabled={!(isValid && selectedPlaceData.length)}>Создать</button>
                     <SlidebarFooter />
