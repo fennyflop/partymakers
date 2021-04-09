@@ -7,6 +7,8 @@ const SlidebarInfo = ({ placeData }) => {
 
     const [isCopied, setIsCopied] = useState(false);
 
+    if (!placeData) return null;
+
     function handleCopy() {
         setIsCopied(true);
         setTimeout(() => {

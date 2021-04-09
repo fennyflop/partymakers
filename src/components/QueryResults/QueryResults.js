@@ -14,7 +14,7 @@ const QueryResults = ({ resultsArray, resultsOpen, isQuerySearching, handlePlace
                             return <QueryResult resultData={e} handlePlacePick={handlePlacePick} key={i} />
                         })
                         :
-                        <QueryResult resultData={['', '😔 Ничего не найдено']} />
+                        <QueryResult isDisabled={true} resultData={['', '😔 Ничего не найдено']} />
             }
         </ul>
     );

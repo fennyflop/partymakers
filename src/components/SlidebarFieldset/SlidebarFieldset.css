@@ -35,6 +35,9 @@
     transform-origin: top left;
     transition: all 0.2s ease-out;
 }
+.slidebar-fieldset__error-message-hidden {
+    display: none;
+}
 .slidebar-fieldset__error-message {
     color: crimson;
     font-size: 12px;

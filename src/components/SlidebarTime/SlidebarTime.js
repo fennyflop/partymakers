@@ -1,12 +1,12 @@
 import './SlidebarTime.css';
 import { useEffect, useState, useMemo } from 'react';
 
-const SlidebarTime = () => {
+const SlidebarTime = ({ displayedTime }) => {
 
     const [isActive, setIsActive] = useState(false);
 
-    const [hours, setHours] = useState();
-    const [minutes, setMinutes] = useState();
+    const [hours, setHours] = useState(displayedTime ? +displayedTime.split(":")[0] : 23);
+    const [minutes, setMinutes] = useState(displayedTime ? +displayedTime.split(":")[1] : 0);
 
     function handleHours(evt) {
         setHours(evt.target.value);
@@ -42,6 +42,7 @@ const SlidebarTime = () => {
                     className="slidebar-fieldset__input-time"
                     onChange={handleHours}
                     autoComplete="off"
+                    disabled={displayedTime ? true : false}
                 />
                 <input
                     min={0}
@@ -52,6 +53,7 @@ const SlidebarTime = () => {
                     className="slidebar-fieldset__input-time"
                     onChange={handleMinutes}
                     autoComplete="off"
+                    disabled={displayedTime ? true : false}
                 />
                 <label className={`slidebar-fieldset__label ${isActive && "slidebar-fieldset__label-time-active"}`} htmlFor="time" >
                     Выбранное время 🕓

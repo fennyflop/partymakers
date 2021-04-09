@@ -1,20 +1,34 @@
 import { YMaps, Map, Clusterer, SearchControl } from 'react-yandex-maps';
 import { useState, useRef } from 'react';
 import PartyMark from '../PartyMark/PartyMark';
-import PartyBlock from '../PartyBlock/PartyBlock';
 import array from '../../constants/constants';
+
+import Query from '../Query/Query';
+import SlideBar from '../SlideBar/SlideBar';
+import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
+import SlidebarTime from '../SlidebarTime/SlidebarTime';
+import SlibebarNone from '../SlibebarNone/SlibebarNone';
+import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
+import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 
 function SelectParty() {
 
     const mapRef = useRef(null);
+    const searchRef = useRef(null);
+    const [resultShow, setResultShow] = useState(false);
     const [selectedParty, setSelectedParty] = useState(null);
+    const [slidebarDisplayed, setSlidebarDisplayed] = useState(false);
 
-    function handleSelectParty(party) {
-        setSelectedParty(party);
+    function toggleSlidebar() {
+        setSlidebarDisplayed(!slidebarDisplayed);
+    }
+
+    function handleSelectParty(partyData) {
+        setSelectedParty(partyData);
         if (mapRef.current) {
-            mapRef.current.panTo(party.coordinates)
+            mapRef.current.panTo(partyData.coordinates)
                 .then(() => {
-                    console.log('party selected succesfully!' + party);
+                    setSlidebarDisplayed(true);
                 })
                 .catch((err) => {
                     console.log('party selection failed: ' + err);
@@ -22,8 +36,28 @@ function SelectParty() {
         }
     }
 
+    function handleResultShow() {
+        setResultShow(resultShow + 1);
+    }
+
     return (
         <>
+            <SlideBar slidebarDisplayed={slidebarDisplayed} toggleSlidebar={toggleSlidebar}>
+                <Query displayInfo={false} searchRef={searchRef} result={resultShow} />
+                {
+                    selectedParty ?
+                        <>
+                            <SlidebarInfo placeData={[selectedParty.coordinates, selectedParty.partyLocationMain, selectedParty.partyLocationAdditional]} />
+                            <SlidebarTime displayedTime={selectedParty.partyTime} displayed={true} />
+                            <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty.partyName} />
+                            <SlidebarFieldset displayed={true} label="Входной возраст 🤪" value={selectedParty.partyAge} />
+                            <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty.partyPrice} />
+                        </>
+                        :
+                        <SlibebarNone />
+                }
+                <SlidebarFooter />
+            </SlideBar>
             <YMaps query={{ lang: 'RU', apikey: "4f28bcfa-4813-4a34-af66-e67428ddd2f7" }}>
                 <Map
                     instanceRef={ref => {
@@ -31,9 +65,9 @@ function SelectParty() {
                     }}
                     width={'100%'}
                     height={'100vh'}
-                    state={{
-                        center: [55.759590, 37.616466],
-                        zoom: 10,
+                    defaultState={{
+                        center: [55.751574, 37.573856],
+                        zoom: 9,
                     }}
                 >
                     <Clusterer
@@ -49,11 +83,15 @@ function SelectParty() {
                         }
                     </Clusterer>
                     <SearchControl
+                        onResultShow={handleResultShow}
+                        instanceRef={ref => {
+                            if (ref) searchRef.current = ref;
+                        }}
                         options={{
-                            noPopup: false,
-                            zoomMargin: 15,
-                            placeholderContent: "Найти туссовку",
-                            popupItemLayout: 'islands#searchControlPopupItemLayout',
+                            noPlacemark: true,
+                            size: 'small',
+                            zoomMargin: 9,
+                            kind: 'locality',
                         }}
                     />
                 </Map>
@@ -63,33 +101,3 @@ function SelectParty() {
 }
 
 export default SelectParty;
-
-{/* <>
-<YMaps query={{ lang: 'RU' }}>
-    <PartyBlock selectedParty={selectedParty} handleReturn={handleReturn} />
-    <Map
-        instanceRef={ref => {
-            if (ref) mapRef.current = ref;
-        }}
-        width={selectedParty ? '50%' : '100%'}
-        height={'100vh'}
-        state={{
-            center: selectedParty ? selectedParty.coordinates : [55.789241, 37.610748],
-            zoom: 10,
-        }}
-    >
-        <Clusterer
-            options={{
-                preset: 'islands#redClusterIcons',
-                groupByCoordinates: false,
-            }}
-        >
-            {
-                array.map((party, i) => {
-                    return <PartyMark party={party} handleSelectParty={handleSelectParty} key={i} />
-                })
-            }
-        </Clusterer>
-    </Map>
-</YMaps>
-</> */}

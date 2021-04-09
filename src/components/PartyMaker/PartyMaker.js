@@ -1,9 +1,7 @@
-import './PartyMaker.css';
 import { YMaps, Map, SearchControl } from 'react-yandex-maps';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
+import Query from '../Query/Query';
 import SlideBar from '../SlideBar/SlideBar';
-import QueryResults from '../QueryResults/QueryResults';
-import QueryInput from '../QueryInput/QueryInput';
 import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
 import SlidebarTime from '../SlidebarTime/SlidebarTime';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
@@ -13,71 +11,28 @@ import { useFormWithValidation } from '../../utils/useForm';
 const PartyMaker = () => {
     const searchRef = useRef(null);
 
-    const [isSearching, setIsSearching] = useState(false);
-    const [resultsOpen, setResultsOpen] = useState(false);
-    const [resultsArray, setResultsArray] = useState([]);
+    const [resultShow, setResultShow] = useState();
     const [selectedPlaceData, setSelectedPlaceData] = useState([]);
-
-    const [queryText, setQueryText] = useState('');
+    const [slidebarDisplayed, setSlidebarDisplayed] = useState(true);
 
     const { values, handleChange, customHandleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    function handleQueryChange(evt) {
-        setQueryText(evt.target.value);
+    function toggleSlidebar() {
+        setSlidebarDisplayed(!slidebarDisplayed);
     }
 
-    function handleClearQuery() {
-        setQueryText('');
-        setResultsOpen(false);
-    }
-
-    function handlePlacePick(placeData) {
-        if (!searchRef.current) return;
+    function handleDisplayPlace(placeData) {
         setSelectedPlaceData(placeData);
-        const generatedQuery = placeData[1] + ', ' + placeData[2];
-        setQueryText(generatedQuery);
     }
 
     function handleResultShow() {
-        setResultsOpen(false);
-    }
-
-    function handleSearchQuery(queryText) {
-        if (!searchRef.current) return;
-        setIsSearching(true); // Start searching
-        searchRef.current.search(queryText)
-            .then(() => {
-                const geoResultsArray = searchRef.current.getResultsArray();
-                if (geoResultsArray.length) return setResultsArray(geoResultsArray.map((e) => { return [e.geometry._coordinates, e.properties._data.name, e.properties._data.description]; }));
-                return Promise.reject("Ничего не найдено")
-            })
-            .catch(() => {
-                setResultsArray([]);
-            }) // finally method doesn't work
-            .then(() => {
-                setResultsOpen(true);
-                setIsSearching(false);
-            })
+        setResultShow(resultShow + 1);
     }
 
     return (
         <>
-            <SlideBar>
-                <main className="query">
-                    <QueryInput
-                        handleCloseResults={handleClearQuery}
-                        handleSearchQuery={handleSearchQuery}
-                        queryText={queryText}
-                        handleQueryChange={handleQueryChange}
-                    />
-                    <QueryResults
-                        resultsArray={resultsArray}
-                        isQuerySearching={isSearching}
-                        resultsOpen={resultsOpen}
-                        handlePlacePick={handlePlacePick}
-                        queryText={queryText}
-                    />
-                </main>
+            <SlideBar slidebarDisplayed={slidebarDisplayed} toggleSlidebar={toggleSlidebar}>
+                <Query displayInfo={true} handleDisplayPlace={handleDisplayPlace} searchRef={searchRef} result={resultShow} />
                 <form className="query__party-form">
                     <SlidebarInfo placeData={selectedPlaceData} error={errors.hours} />
                     <SlidebarTime handleChange={handleChange} hours={values.hours} minutes={values.minutes} />

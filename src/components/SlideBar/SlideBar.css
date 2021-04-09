@@ -21,7 +21,6 @@
   outline: none;
   border: none;
   transition: all .2s ease-in-out;
-  /* /transform: rotate(90deg); */
   transform: rotateZ(270deg);
 }
 .slidebar__toggler-toggled {

@@ -1,8 +1,9 @@
 import './QueryResult.css';
 import searchIcon from '../../images/querySearch.svg';
 
-const QueryResult = ({ resultData, handlePlacePick }) => {
+const QueryResult = ({ resultData, handlePlacePick, isDisabled }) => {
     function handlePick() {
+        if (isDisabled) return
         handlePlacePick(resultData);
     }
     if (!resultData) {
