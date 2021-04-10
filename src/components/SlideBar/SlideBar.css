@@ -1,10 +1,13 @@
+@keyframes slide {
+  100% { left: 0; }
+}
 .slidebar {
     position: absolute;
     min-width: 350px;
     max-width: 450px;
     width: 35%;
     height: 100vh;
-    left: 0;
+    /* left: 0; */
     top: 0;
     z-index: 99;
 }
@@ -25,7 +28,7 @@
 }
 .slidebar__toggler-toggled {
   right: 0;
-  transform: rotateZ(90deg);
+  transform: rotateZ(270deg) rotateX(180deg);
 }
 .slidebar__toggler:hover {
   cursor: pointer;
@@ -38,15 +41,17 @@
   z-index: 99;
   padding: 68px 0 30px;
   box-sizing: border-box;
-  display: none;
   flex-direction: column;
   align-items: center;
   /* overflow-x: hidden; */
   overflow-y: scroll;
   background-color: #f6f6f6;
+  position: relative;
+  left: -410px;
+  transition: all .2s ease-in-out;
 }
 .slidebar__main-toggled {
-  display: flex;
+  left: 0;
 }
 .slidebar__main::-webkit-scrollbar {
     width: 1px;

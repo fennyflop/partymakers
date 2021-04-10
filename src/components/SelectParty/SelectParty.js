@@ -1,5 +1,5 @@
 import { YMaps, Map, Clusterer, SearchControl } from 'react-yandex-maps';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PartyMark from '../PartyMark/PartyMark';
 import array from '../../constants/constants';
 
@@ -8,8 +8,9 @@ import SlideBar from '../SlideBar/SlideBar';
 import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
 import SlidebarTime from '../SlidebarTime/SlidebarTime';
 import SlibebarNone from '../SlibebarNone/SlibebarNone';
-import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
+import SlidebarSwipe from '../SlidebarSwipe/SlidebarSwipe';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
+import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 
 function SelectParty() {
 
@@ -23,6 +24,10 @@ function SelectParty() {
         setSlidebarDisplayed(!slidebarDisplayed);
     }
 
+    function handleResultShow() { // mounts result show on result show event
+        setResultShow(resultShow + 1);
+    }
+
     function handleSelectParty(partyData) {
         setSelectedParty(partyData);
         if (mapRef.current) {
@@ -30,14 +35,7 @@ function SelectParty() {
                 .then(() => {
                     setSlidebarDisplayed(true);
                 })
-                .catch((err) => {
-                    console.log('party selection failed: ' + err);
-                })
         }
-    }
-
-    function handleResultShow() {
-        setResultShow(resultShow + 1);
     }
 
     return (
