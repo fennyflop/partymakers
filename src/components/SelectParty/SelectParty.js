@@ -7,7 +7,7 @@ import Query from '../Query/Query';
 import SlideBar from '../SlideBar/SlideBar';
 import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
 import SlidebarTime from '../SlidebarTime/SlidebarTime';
-import SlibebarNone from '../SlibebarNone/SlibebarNone';
+import SlibebarList from '../SlibebarList/SlibebarList';
 import SlidebarSwipe from '../SlidebarSwipe/SlidebarSwipe';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
@@ -52,7 +52,7 @@ function SelectParty() {
                             <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty.partyPrice} />
                         </>
                         :
-                        <SlibebarNone />
+                        <SlibebarList partyArray={array} />
                 }
                 <SlidebarFooter />
             </SlideBar>

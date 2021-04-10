@@ -1,0 +1,29 @@
+.slidebar-party {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    width: 100%;
+    height: clamp(50px, fit-content, 70px);
+}
+.slidebar-party__info {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.slidebar-party__name {
+    width: 60px;
+}
+.slidebar-party__time {
+
+}
+.slidebar-party__age {
+    color: 
+}
+.slidebar-party__age::after {
+    position: relative;
+    bottom: 10px;
+    content: "+";
+}
