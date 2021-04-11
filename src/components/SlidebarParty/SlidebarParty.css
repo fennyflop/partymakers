@@ -1,29 +1,86 @@
 .slidebar-party {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    margin-top: 0 0 5px;
     padding: 5px 10px;
     width: 100%;
     height: clamp(50px, fit-content, 70px);
+    transition: all .2s ease-in-out;
+}
+.slidebar-party:hover {
+    background-color: rgb(36,36,36,.1);
 }
 .slidebar-party__info {
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: flex; 
+    justify-content: space-between;
 }
 .slidebar-party__name {
-    width: 60px;
+    line-height: 28px;
+    font-weight: 500;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.slidebar-party__values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.slidebar-party__cost {
+    margin: 5px 0 5px;
+    color: #24a319;
+    text-decoration: underline;
 }
 .slidebar-party__time {
-
+    width: fit-content;
+    margin: 0;
 }
 .slidebar-party__age {
-    color: 
+    line-height: 28px;
+    font-weight: 500;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
 }
 .slidebar-party__age::after {
     position: relative;
-    bottom: 10px;
+    bottom: 9px;
     content: "+";
+}
+.slidebar-party__place {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+}
+.slidebar-party__place-main {
+    display: inline;
+    color: #999;
+    text-decoration: none;
+    margin: 5px 0 10px;
+}
+.slidebar-party__place-additional {
+    margin: 5px 0 0;
+    display: inline;
+    color: #999;
+    text-decoration: none;
+}
+.slidebar-party__join {
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    background: #4285f4;
+    box-sizing: border-box;
+    transition: all .2s ease-in-out;
+}
+.slidebar-party__join:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #2ce080;
 }

@@ -1,11 +1,11 @@
 import './SlibebarList.css';
 import SlidebarParty from '../SlidebarParty/SlidebarParty';
 
-const SlibebarList = ({ partyArray }) => {
+const SlibebarList = ({ partyArray, selectParty }) => {
     return (
         <ul className="slidebar-list">
             {partyArray.map((party, i) => {
-                return <SlidebarParty party={party} />
+                return <SlidebarParty party={party} selectParty={selectParty} />
             })}
         </ul>
     )

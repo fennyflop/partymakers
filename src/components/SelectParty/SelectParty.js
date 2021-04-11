@@ -52,7 +52,7 @@ function SelectParty() {
                             <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty.partyPrice} />
                         </>
                         :
-                        <SlibebarList partyArray={array} />
+                        <SlibebarList partyArray={array} selectParty={handleSelectParty} />
                 }
                 <SlidebarFooter />
             </SlideBar>
