@@ -9,3 +9,22 @@
     border-top: 1px solid rgba(0,0,0,.2);
     border-bottom: 1px solid rgba(0,0,0,.2);
 }
+.slidebar-list__more-hidden {
+    display: none;
+}
+.slidebar-list__more {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    margin: 10px 0 0;
+    color: white;
+    background-color: #4285f4;
+    padding: 20px;
+    transition: all .2s ease-in-out;
+}
+.slidebar-list__more:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #2ce080;
+}

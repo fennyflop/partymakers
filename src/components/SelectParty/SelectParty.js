@@ -50,6 +50,7 @@ function SelectParty() {
                             <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty.partyName} />
                             <SlidebarFieldset displayed={true} label="Входной возраст 🤪" value={selectedParty.partyAge} />
                             <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty.partyPrice} />
+                            <button className="slidebar-select__select-button">Купить</button>
                         </>
                         :
                         <SlibebarList partyArray={array} selectParty={handleSelectParty} />
