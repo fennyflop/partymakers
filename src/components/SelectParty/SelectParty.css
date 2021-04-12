@@ -1,4 +1,20 @@
-.selectparty {
+/* .selectparty {
     display: flex;
     justify-content: space-between;
+} */
+.slidebar-select__select-button {
+    outline: none;
+    border: none;
+    width: 100%;
+    margin-top: 30px;
+    color: white;
+    padding: 20px 20px;
+    background: #4285f4;
+    box-sizing: border-box;
+    transition: all .2s ease-in-out;
+}
+.slidebar-select__select-button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #2ce080;
 }

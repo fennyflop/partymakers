@@ -1,3 +1,4 @@
+import './SelectParty.css';
 import { YMaps, Map, Clusterer, SearchControl } from 'react-yandex-maps';
 import { useState, useRef, useEffect } from 'react';
 import PartyMark from '../PartyMark/PartyMark';
