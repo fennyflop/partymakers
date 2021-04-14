@@ -9,7 +9,7 @@ const array = [
         partyLocationAdditional: 'Город Москва'
     },
     {
-        partyName: "Чеб",
+        partyName: "Чуб",
         partyAge: 12,
         partyPrice: 1500,
         partyTime: '21:00',
@@ -36,7 +36,7 @@ const array = [
         partyLocationAdditional: 'Город Киев'
     },
     {
-        partyName: "Флип",
+        partyName: "Флуп",
         partyAge: 12,
         partyPrice: 1500,
         partyTime: '21:00',
