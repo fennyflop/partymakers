@@ -7,6 +7,57 @@
     padding: 5px 10px;
     width: 100%;
     height: clamp(50px, fit-content, 70px);
+    transition: all .1s ease-in-out;
+}
+.slidebar-party:hover {
+    background-color: rgb(36,36,36,.05);
+}
+.slidebar-party__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(36,36,36,0.2);
+}
+.slidebar-party__name {
+    color: rgb(36,36,36);
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 500;
+    margin: 0;
+}
+.slidebar-party__button{
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+.slidebar-party__button:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+.slidebar-party__button-bookmark {
+    background-image: url('../../images/bookmark.svg');
+}
+.slidebar-party__button-join {
+    margin: 0 0 0 5px;
+    background-image: url('../../images/show.svg');
+}
+
+
+/* .slidebar-party {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 0 0 5px;
+    padding: 5px 10px;
+    width: 100%;
+    height: clamp(50px, fit-content, 70px);
     transition: all .2s ease-in-out;
 }
 .slidebar-party:hover {
@@ -83,4 +134,4 @@
     cursor: pointer;
     color: black;
     background-color: #2ce080;
-}
+} */

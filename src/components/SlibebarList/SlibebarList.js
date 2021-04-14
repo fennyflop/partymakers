@@ -2,6 +2,7 @@ import './SlibebarList.css';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 import SlidebarParty from '../SlidebarParty/SlidebarParty';
 import Preloader from '../Preloader/Preloader';
+import QueryNone from '../QueryNone/QueryNone';
 import { useState, useEffect } from 'react';
 import { useFormWithValidation } from '../../utils/useForm';
 
@@ -27,7 +28,7 @@ const SlibebarList = ({ partyArray, selectParty }) => {
         })
         setTimeout(() => {
             setIsLoading(false);
-        }, 1000);
+        }, 500);
 
         return filteredParties;
     }
@@ -68,11 +69,16 @@ const SlibebarList = ({ partyArray, selectParty }) => {
                 isLoading ?
                     <Preloader />
                     :
-                    displayedParties.map((party, i) => {
-                        return <SlidebarParty party={party} selectParty={selectParty} key={i} />
-                    })
+                    (
+                        searchedArray.length ?
+                            displayedParties.map((party, i) => {
+                                return <SlidebarParty party={party} selectParty={selectParty} key={i} />
+                            })
+                            :
+                            <QueryNone />
+                    )
             }
-            <button className={`slidebar-list__more ${(elements + 1 === searchedArray.length || isLoading || searchedArray.length === 0 || searchedArray.length < elements) && 'slidebar-list__more-hidden'}`} onClick={handleMoreParties}>Ещё</button>
+            <button className={`slidebar-list__more ${(elements + 1 === searchedArray.length || isLoading || searchedArray.length === 0 || searchedArray.length < elements) && 'slidebar-list__more-hidden'}`} onClick={handleMoreParties}>Показать ещё</button>
         </ul>
     )
 }
