@@ -22,12 +22,15 @@
     outline: none;
     box-sizing: border-box;
     transition: all .1s ease-in-out;
+    opacity: .8;
 }
 .query__party-submit:hover {
     cursor: pointer;
+    opacity: 1;
 }
 .query__party-submit:disabled {
     opacity: .8;
+    background-color: #ee3465;
 }
 .query__party-submit:disabled:hover {
     cursor: not-allowed;

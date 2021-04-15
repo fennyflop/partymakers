@@ -17,9 +17,18 @@ function SelectParty() {
 
     const mapRef = useRef(null);
     const searchRef = useRef(null);
+    const [isListSelected, setIsListSelected] = useState(true);
     const [resultShow, setResultShow] = useState(false);
     const [selectedParty, setSelectedParty] = useState(null);
     const [slidebarDisplayed, setSlidebarDisplayed] = useState(false);
+
+    function selectList() {
+        setIsListSelected(true);
+    }
+
+    function selectParty() {
+        setIsListSelected(false);
+    }
 
     function toggleSlidebar() {
         setSlidebarDisplayed(!slidebarDisplayed);
@@ -43,8 +52,12 @@ function SelectParty() {
         <>
             <SlideBar slidebarDisplayed={slidebarDisplayed} toggleSlidebar={toggleSlidebar}>
                 <Query displayInfo={false} searchRef={searchRef} result={resultShow} />
+                <div className="slidebar-select__router">
+                    <button className={`slidebar-select__button ${!isListSelected && 'slidebar-select__button-selected'}`} onClick={selectParty}>Список</button>
+                    <button className={`slidebar-select__button ${isListSelected && 'slidebar-select__button-selected'}`} disabled={selectedParty ? false : true} onClick={selectList}>{selectedParty?.partyName || 'Не выбрано'}</button>
+                </div>
                 {
-                    selectedParty ?
+                    isListSelected ?
                         <>
                             <SlidebarInfo placeData={[selectedParty.coordinates, selectedParty.partyLocationMain, selectedParty.partyLocationAdditional]} />
                             <SlidebarTime displayedTime={selectedParty.partyTime} displayed={true} />

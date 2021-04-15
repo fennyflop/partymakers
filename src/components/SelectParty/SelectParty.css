@@ -18,3 +18,36 @@
     color: black;
     background-color: #2ce080;
 }
+.slidebar-select__router {
+    width: 100%;
+    display: flex;
+    margin: 30px 0 0;
+    overflow: hidden;
+    background-color: #4285f4;
+}
+.slidebar-select__button {
+    width: 50%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    transform: scale(1);
+    transition: all .1s ease-in-out;
+}
+.slidebar-select__button:disabled {
+    background-color: #ee3465;
+}
+.slidebar-select__button:disabled:hover {
+    cursor:not-allowed;
+    transform: scale(1);
+}
+.slidebar-select__button-selected {
+    color: black;
+    background-color: #2ce080;
+}
+.slidebar-select__button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}

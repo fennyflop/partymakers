@@ -23,7 +23,7 @@ const SlidebarParty = ({ party, selectParty }) => {
             </div>
             <div className="slidebar-party__info">
                 <h3 className="slidebar-party__place">{party.partyLocationMain}</h3>
-                <p className="slidebar-party__price">{party.partyPrice} RUB</p>
+                <p className="slidebar-party__price">{party.partyPrice ? party.partyPrice + ' RUB' : 'Бесплатно'}</p>
             </div>
         </li>
     );

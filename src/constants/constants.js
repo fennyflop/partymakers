@@ -2,7 +2,7 @@ const array = [
     {
         partyName: "Ge:Ge Moscow",
         partyAge: 18,
-        partyPrice: 2500,
+        partyPrice: 0,
         partyTime: '24:00',
         coordinates: [32.701243, 70.398543],
         partyLocationMain: 'Виллидж-оф-Чел-Кхана',
