@@ -17,17 +17,17 @@ function SelectParty() {
 
     const mapRef = useRef(null);
     const searchRef = useRef(null);
-    const [isListSelected, setIsListSelected] = useState(true);
+    const [isPartyViewSelected, setisPartyViewSelected] = useState(true);
     const [resultShow, setResultShow] = useState(false);
     const [selectedParty, setSelectedParty] = useState(null);
     const [slidebarDisplayed, setSlidebarDisplayed] = useState(false);
 
     function selectList() {
-        setIsListSelected(true);
+        setisPartyViewSelected(true);
     }
 
     function selectParty() {
-        setIsListSelected(false);
+        setisPartyViewSelected(false);
     }
 
     function toggleSlidebar() {
@@ -39,6 +39,7 @@ function SelectParty() {
     }
 
     function handleSelectParty(partyData) {
+        setisPartyViewSelected(true);
         setSelectedParty(partyData);
         if (mapRef.current) {
             mapRef.current.panTo(partyData.coordinates)
@@ -53,17 +54,17 @@ function SelectParty() {
             <SlideBar slidebarDisplayed={slidebarDisplayed} toggleSlidebar={toggleSlidebar}>
                 <Query displayInfo={false} searchRef={searchRef} result={resultShow} />
                 <div className="slidebar-select__router">
-                    <button className={`slidebar-select__button ${!isListSelected && 'slidebar-select__button-selected'}`} onClick={selectParty}>Список</button>
-                    <button className={`slidebar-select__button ${isListSelected && 'slidebar-select__button-selected'}`} disabled={selectedParty ? false : true} onClick={selectList}>{selectedParty?.partyName || 'Не выбрано'}</button>
+                    <button className={`slidebar-select__button ${!isPartyViewSelected && 'slidebar-select__button-selected'}`} onClick={selectParty}>Список</button>
+                    <button className={`slidebar-select__button ${isPartyViewSelected && 'slidebar-select__button-selected'}`} disabled={selectedParty ? false : true} onClick={selectList}>{selectedParty?.partyName || 'Не выбрано'}</button>
                 </div>
                 {
-                    isListSelected ?
+                    isPartyViewSelected && selectedParty ?
                         <>
-                            <SlidebarInfo placeData={[selectedParty.coordinates, selectedParty.partyLocationMain, selectedParty.partyLocationAdditional]} />
-                            <SlidebarTime displayedTime={selectedParty.partyTime} displayed={true} />
-                            <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty.partyName} />
-                            <SlidebarFieldset displayed={true} label="Входной возраст 🤪" value={selectedParty.partyAge} />
-                            <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty.partyPrice} />
+                            <SlidebarInfo placeData={[selectedParty?.coordinates, selectedParty?.partyLocationMain, selectedParty?.partyLocationAdditional]} />
+                            <SlidebarTime displayedTime={selectedParty?.partyTime} displayed={true} />
+                            <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty?.partyName} />
+                            <SlidebarFieldset displayed={true} label="Входной возраст 🤪" value={selectedParty?.partyAge} />
+                            <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty?.partyPrice} />
                             <button className="slidebar-select__select-button">Купить</button>
                         </>
                         :

@@ -41,9 +41,6 @@ const SlibebarList = ({ partyArray, selectParty }) => {
             .catch((err) => {
                 console.log(err);
             })
-            .then(() => {
-                setElements(3);
-            })
     }, [values.query])
 
     useEffect(() => {
