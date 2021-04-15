@@ -4,9 +4,9 @@ const array = [
         partyAge: 18,
         partyPrice: 2500,
         partyTime: '24:00',
-        coordinates: [55.674438, 37.412343],
-        partyLocationMain: 'река Олег',
-        partyLocationAdditional: 'Город Москва'
+        coordinates: [32.701243, 70.398543],
+        partyLocationMain: 'Виллидж-оф-Чел-Кхана',
+        partyLocationAdditional: 'Пакистан, провинция Хайбер-Пахтунхва'
     },
     {
         partyName: "Чуб",
