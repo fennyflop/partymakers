@@ -6,12 +6,14 @@ import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
 import SlidebarTime from '../SlidebarTime/SlidebarTime';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
+import DatePicker from '../DatePicker/DatePicker';
 import { useFormWithValidation } from '../../utils/useForm';
 
 const PartyMaker = () => {
     const searchRef = useRef(null);
 
     const [resultShow, setResultShow] = useState();
+    const [selectedDate ,setSelectedDate] = useState(Date.now());
     const [selectedPlaceData, setSelectedPlaceData] = useState([]);
     const [slidebarDisplayed, setSlidebarDisplayed] = useState(true);
 
@@ -29,18 +31,24 @@ const PartyMaker = () => {
         setResultShow(resultShow + 1);
     }
 
+    function selectDate(date) {
+        setSelectedDate(date);
+        console.log(date);
+    }
+
     return (
         <>
             <SlideBar slidebarDisplayed={slidebarDisplayed} toggleSlidebar={toggleSlidebar}>
                 <Query displayInfo={true} handleDisplayPlace={handleDisplayPlace} searchRef={searchRef} result={resultShow} />
                 <form className="query__party-form">
-                    <SlidebarInfo placeData={selectedPlaceData} error={errors.hours} />
+                    <SlidebarFieldset handleChange={handleChange} value={values.partyTitle} name='partyTitle' label="Название тусы 👀" type="text" error={errors.partyTitle} isRequired={true} />
+                    <DatePicker selectDate={selectDate} />
                     <SlidebarTime handleChange={handleChange} hours={values.hours} minutes={values.minutes} />
                     <p className="slidebar-fieldset__error-message">{errors.hours}</p>
                     <p className="slidebar-fieldset__error-message">{errors.minutes}</p>
-                    <SlidebarFieldset handleChange={handleChange} value={values.partyTitle} name='partyTitle' label="Название тусы 👀" type="text" error={errors.partyTitle} isRequired={true} />
                     <SlidebarFieldset handleChange={handleChange} value={values.minAge} name='minAge' label="Входной возраст 🤪" type="number" min={0} max={150} error={errors.minAge} isRequired={true} />
                     <SlidebarFieldset handleChange={handleChange} value={values.cost} name='cost' label="Стоимость RUB 🤑" type="number" min={0} error={errors.cost} isRequired={false} />
+                    <SlidebarInfo placeData={selectedPlaceData} error={errors.hours} />
                     <button className="query__party-submit" disabled={!(isValid && selectedPlaceData.length)}>Создать</button>
                     <SlidebarFooter />
                 </form>

@@ -60,12 +60,12 @@ function SelectParty() {
                 {
                     isPartyViewSelected && selectedParty ?
                         <>
-                            <SlidebarInfo placeData={[selectedParty?.coordinates, selectedParty?.partyLocationMain, selectedParty?.partyLocationAdditional]} />
-                            <SlidebarTime displayedTime={selectedParty?.partyTime} displayed={true} />
                             <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty?.partyName} />
+                            <SlidebarTime displayedTime={selectedParty?.partyTime} displayed={true} />
                             <SlidebarFieldset displayed={true} label="Входной возраст 🤪" value={selectedParty?.partyAge} />
-                            <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty?.partyPrice} />
-                            <button className="slidebar-select__select-button">Купить</button>
+                            <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty?.partyPrice || 'Бесплатно'} />
+                            <SlidebarInfo placeData={[selectedParty?.coordinates, selectedParty?.partyLocationMain, selectedParty?.partyLocationAdditional]} />
+                            <button className="slidebar-select__select-button">{selectedParty?.partyPrice ? 'Купить' : 'Посетить'}</button>
                         </>
                         :
                         <SlibebarList partyArray={array} selectParty={handleSelectParty} />

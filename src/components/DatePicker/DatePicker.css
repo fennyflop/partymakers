@@ -1,0 +1,9 @@
+.date-picker__input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 15px 20px 0;
+    border: none;
+    outline: navajowhite;
+    font-family: sans-serif;
+    color: grey;
+}
