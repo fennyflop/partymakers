@@ -55,7 +55,7 @@ const SlidebarTime = ({ displayedTime }) => {
                     autoComplete="off"
                     disabled={displayedTime ? true : false}
                 />
-                <label className={`slidebar-fieldset__label ${isActive && "slidebar-fieldset__label-time-active"}`} htmlFor="time" >
+                <label className={`slidebar-fieldset__label ${(isActive) && "slidebar-fieldset__label-time-active"}`} htmlFor="time" >
                     Выбранное время 🕓
                 </label>
             </fieldset>

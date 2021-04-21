@@ -5,6 +5,7 @@ const array = [
         partyPrice: 0,
         partyTime: '24:00',
         coordinates: [32.701243, 70.398543],
+        partyDate: '2021-04-20',
         partyLocationMain: 'Виллидж-оф-Чел-Кхана',
         partyLocationAdditional: 'Пакистан, провинция Хайбер-Пахтунхва'
     },
@@ -13,6 +14,7 @@ const array = [
         partyAge: 12,
         partyPrice: 1500,
         partyTime: '21:00',
+        partyDate: '2021-04-20',
         coordinates: [55.671345, 37.408182],
         partyLocationMain: 'река Тимур',
         partyLocationAdditional: 'Город Киев'
@@ -22,6 +24,7 @@ const array = [
         partyAge: 12,
         partyPrice: 1500,
         partyTime: '21:00',
+        partyDate: '2021-04-20',
         coordinates: [55.686721, 37.290711],
         partyLocationMain: 'река Тимур',
         partyLocationAdditional: 'Город Киев'
@@ -49,6 +52,7 @@ const array = [
         partyAge: 12,
         partyPrice: 1500,
         partyTime: '21:00',
+        partyDate: '2021-04-20',
         coordinates: [59.938951, 30.315635],
         partyLocationMain: 'река Тимур',
         partyLocationAdditional: 'Город Киев'
@@ -57,6 +61,7 @@ const array = [
         partyName: "Rер",
         partyAge: 12,
         partyPrice: 1500,
+        partyDate: '2021-04-20',
         partyTime: '21:00',
         coordinates: [55.645395, 37.351384],
         partyLocationMain: 'река Тимур',
@@ -67,6 +72,7 @@ const array = [
         partyAge: 12,
         partyPrice: 1500,
         partyTime: '21:00',
+        partyDate: '2021-04-20',
         coordinates: [55.617164, 37.318559],
         partyLocationMain: 'река Тимур',
         partyLocationAdditional: 'Город Киев'

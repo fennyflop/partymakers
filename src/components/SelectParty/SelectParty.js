@@ -9,8 +9,9 @@ import SlideBar from '../SlideBar/SlideBar';
 import SlidebarInfo from '../SlidebarInfo/SlidebarInfo';
 import SlidebarTime from '../SlidebarTime/SlidebarTime';
 import SlibebarList from '../SlibebarList/SlibebarList';
-import SlidebarSwipe from '../SlidebarSwipe/SlidebarSwipe';
+import SelectedParty from '../SelectedParty/SelectedParty';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
+import DatePicker from '../DatePicker/DatePicker';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 
 function SelectParty() {
@@ -60,12 +61,14 @@ function SelectParty() {
                 {
                     isPartyViewSelected && selectedParty ?
                         <>
-                            <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty?.partyName} />
+                            <SelectedParty party={selectedParty} />
+                            {/* <SlidebarFieldset displayed={true} label="Название тусы 👀" value={selectedParty?.partyName} />
+                            <DatePicker displayed={true} dateValue={selectedParty?.partyDate} />
                             <SlidebarTime displayedTime={selectedParty?.partyTime} displayed={true} />
                             <SlidebarFieldset displayed={true} label="Входной возраст 🤪" value={selectedParty?.partyAge} />
                             <SlidebarFieldset displayed={true} label="Стоимость RUB 🤑" value={selectedParty?.partyPrice || 'Бесплатно'} />
                             <SlidebarInfo placeData={[selectedParty?.coordinates, selectedParty?.partyLocationMain, selectedParty?.partyLocationAdditional]} />
-                            <button className="slidebar-select__select-button">{selectedParty?.partyPrice ? 'Купить' : 'Посетить'}</button>
+                            <button className="slidebar-select__select-button">{selectedParty?.partyPrice ? 'Купить' : 'Посетить'}</button> */}
                         </>
                         :
                         <SlibebarList partyArray={array} selectParty={handleSelectParty} />
