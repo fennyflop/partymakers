@@ -1,16 +1,19 @@
 .query__results {
-    max-width: 100%;
+    width: 100%;
+    padding: 0;
     height: fit-content; /* Sliding down */
-    margin: 0;
-    padding: 5px 0;
+    margin-top: -1px;
     box-sizing: border-box;
-    background-color: white;
     list-style-type: none;
-    border-top: 1px solid rgba(0, 0, 0, .2);
+    /* border-top: 3px solid #0b0e11; */
     display: none;
     flex-direction: column;
     justify-content: center;
     transition: all .2s ease-in-out;
+    position: absolute;
+    top: 55px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 .query__results-opened {
     display: flex;

@@ -2,11 +2,8 @@
     width: 100%;
     border-radius: 1px;
     /* overflow: hidden; */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-    position: absolute;
-    top: 20px;
+    position: relative;
     height: fit-content;
-    background-color: white;
     z-index: 100;
 }
 .query__party-form {

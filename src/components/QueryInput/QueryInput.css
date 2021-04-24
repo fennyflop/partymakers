@@ -5,6 +5,8 @@
     align-items: center;
     box-sizing: border-box;
     padding: 5px 5px 5px 5px;
+    background-color: #242c37;
+    border-radius: 8px;
 }
 .query__icon {
     width: 32px;
@@ -18,10 +20,10 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: black;
+    color: white;
 }
 .query__input::placeholder {
-    color: black;
+    color: white;
     opacity: 1;
 }
 .query__button {

@@ -1,14 +1,15 @@
 .result {
     width: 100%;
     box-sizing: border-box;
-    padding: 5px 20px;
+    padding: 8px 15px;
     box-sizing: border-box;
     transition: all .2s ease-in-out;
     display: flex;
+    background-color: #242c37;
 }
 .result:hover {
     cursor: pointer;
-    background-color: rgb(36,36,36,.1);
+    background-color: #151a21;
 }
 .result__image {
     margin-right: 5px;
@@ -25,9 +26,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    color: #dee3ea;
 }
 .result__description {
-    color: black;
+    color: #5d7290;
     margin: 0;
     font-size: 12px;
 }
