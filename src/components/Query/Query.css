@@ -1,10 +1,10 @@
 .query {
     width: 100%;
-    border-radius: 1px;
     /* overflow: hidden; */
     position: relative;
     height: fit-content;
     z-index: 100;
+    border-radius: 5px;
 }
 .query__party-form {
     width: 100%;
@@ -24,10 +24,12 @@
 .query__party-submit:hover {
     cursor: pointer;
     opacity: 1;
+    border-radius: 5px;
 }
 .query__party-submit:disabled {
     opacity: .8;
-    background-color: #ee3465;
+    background-color: #fd4d4d;
+    border-radius: 5px;
 }
 .query__party-submit:disabled:hover {
     cursor: not-allowed;

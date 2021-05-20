@@ -6,8 +6,9 @@
     border: 0;
     outline: 0;
     display: flex;
-    background-color: white;
+    background-color: #242c37;
     position: relative;
+    border-radius: 5px;
     /* border-bottom: 1px solid rgba(0,0,0,.3); */
 }
 .slidebar-fieldset__input-time {
@@ -16,11 +17,12 @@
     height: 70px;
     padding: 30px 0 0;
     outline: 0;
-    background-color: white;
+    background-color: #242c37;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid white;
     outline: none;
     text-align: center;
 }

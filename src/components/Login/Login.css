@@ -64,8 +64,8 @@
     background-color: rgb(36,36,36);
     border: none;
     outline: none;
-    border-radius: 20px;
-    height: 25px;
+    border-radius: 10px;
+    height: 40px;
     box-sizing: border-box;
     padding: 2px 8px;
 }

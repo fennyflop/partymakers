@@ -6,4 +6,13 @@
     outline: navajowhite;
     font-family: sans-serif;
     color: grey;
+    background-color: #242c37;
 }
+.date-picker__input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+::-webkit-datetime-edit-text { color: white; }
+::-webkit-datetime-edit-month-field { color: white; }
+::-webkit-datetime-edit-day-field { color: wheat; }
+::-webkit-datetime-edit-year-field { color: white; }
+::-webkit-inner-spin-button { display: none; }

@@ -10,7 +10,8 @@
     width: 100%;
     height: clamp(50px, fit-content, 70px);
     transition: all .1s ease-in-out;
-    background-color: #fff;
+    background-color: #242c37;
+    border-radius: 5px;
 }
 .slidebar-party__header {
     display: flex;
@@ -19,11 +20,12 @@
     padding: 0 10px 5px;
 }
 .slidebar-party__name {
-    color: rgb(36,36,36);
+    /* color: rgb(36,36,36); */
     font-size: 20px;
     line-height: 23px;
     font-weight: 500;
     margin: 0;
+    color: white;
     align-self: center;
 }
 .slidebar-party__buttons {
@@ -60,6 +62,7 @@
     box-sizing: border-box;
     padding: 5px 15px 0 10px;
     display: flex;
+    color: white;
     align-items: center;
     justify-content: space-between;
 }
@@ -73,6 +76,7 @@
     width: 80%;
     max-height: 75px;
     word-break: normal;
+    color: white;
 }
 .slidebar-party__age {
     font-weight: 500;
@@ -93,4 +97,5 @@
     margin: 0 20px 0 0;
     line-height: 16px;
     font-weight: 500;
+    color: white;
 }

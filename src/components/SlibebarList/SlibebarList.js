@@ -3,6 +3,7 @@ import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 import SlidebarParty from '../SlidebarParty/SlidebarParty';
 import Preloader from '../Preloader/Preloader';
 import { useState, useEffect } from 'react';
+import api from '../../utils/api';
 import { useFormWithValidation } from '../../utils/useForm';
 
 const SlibebarList = ({ partyArray, selectParty }) => {
@@ -17,6 +18,13 @@ const SlibebarList = ({ partyArray, selectParty }) => {
     function handleMoreParties() {
         setElements(elements + 1);
     }
+
+    useEffect(() => {
+        api.getAllParties()
+        .then((res) => {
+            setSearchedArray(res);
+        })
+    }, []);
 
     async function searchQuery(query) {
         if (!query) return partyArray;

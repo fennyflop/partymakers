@@ -26,6 +26,7 @@ export function useFormWithValidation() {
         setValues({ ...values, [name]: value });
         setErrors({ ...errors, [name]: target.validationMessage });
         setIsValid(target.closest("form").checkValidity());
+        console.log(value);
     };
 
     const customHandleChange = (event, customValidation, additionalData) => {

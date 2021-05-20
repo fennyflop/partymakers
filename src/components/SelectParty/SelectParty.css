@@ -11,6 +11,7 @@
     padding: 20px 20px;
     background: #4285f4;
     box-sizing: border-box;
+    border-radius: 5px;
     transition: all .2s ease-in-out;
 }
 .slidebar-select__select-button:hover {

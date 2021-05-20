@@ -7,6 +7,7 @@ import SlidebarTime from '../SlidebarTime/SlidebarTime';
 import SlidebarFooter from '../SlidebarFooter/SlidebarFooter';
 import SlidebarFieldset from '../SlidebarFieldset/SlidebarFieldset';
 import DatePicker from '../DatePicker/DatePicker';
+import api from '../../utils/api';
 import { useFormWithValidation } from '../../utils/useForm';
 
 const PartyMaker = () => {
@@ -36,11 +37,23 @@ const PartyMaker = () => {
         console.log(date);
     }
 
+    function createNewParty(evt) {
+        evt.preventDefault();
+        console.log(selectedPlaceData);
+        api.createUserParty(values.partyTitle, "", selectedDate, selectedPlaceData[0], selectedPlaceData[1], selectedPlaceData[2], values.cost, values.minAge)
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
     return (
         <>
             <SlideBar slidebarDisplayed={slidebarDisplayed} toggleSlidebar={toggleSlidebar}>
                 <Query displayInfo={true} handleDisplayPlace={handleDisplayPlace} searchRef={searchRef} result={resultShow} />
-                <form className="query__party-form">
+                <form className="query__party-form" onSubmit={createNewParty}>
                     <SlidebarFieldset handleChange={handleChange} value={values.partyTitle} name='partyTitle' label="Название тусы 👀" type="text" error={errors.partyTitle} isRequired={true} />
                     <DatePicker selectDate={selectDate} />
                     <SlidebarTime handleChange={handleChange} hours={values.hours} minutes={values.minutes} />

@@ -2,6 +2,7 @@
     border-top: 1px solid rgba(0, 0, 0, .2);
     width: 100%;
     margin: 20px 0 0;
+    padding: 0 0 50px;
 }
 .slidebar-footer__links {
     display: flex;
@@ -13,7 +14,7 @@
 .slidebar-footer__link {
     font-size: 14px;
     line-height: 16px;
-    color: #4d4d4d;
+    color: white;
     padding: 12px 0;
     width: fit-content;
     transition: color .1s ease-in-out;
@@ -38,6 +39,7 @@
     height: 24px;
     opacity: .6;
     margin-right: 15px;
+    filter: invert(1);
 }
 .slidebar-footer__social:hover {
     cursor: pointer;
