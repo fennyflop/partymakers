@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/partymakers/static/css/main.6773ec51.chunk.css",
+    "main.js": "/partymakers/static/js/main.6b0fcfea.chunk.js",
+    "main.js.map": "/partymakers/static/js/main.6b0fcfea.chunk.js.map",
+    "runtime-main.js": "/partymakers/static/js/runtime-main.3dd2c2db.js",
+    "runtime-main.js.map": "/partymakers/static/js/runtime-main.3dd2c2db.js.map",
+    "static/js/2.2b1f2ae8.chunk.js": "/partymakers/static/js/2.2b1f2ae8.chunk.js",
+    "static/js/2.2b1f2ae8.chunk.js.map": "/partymakers/static/js/2.2b1f2ae8.chunk.js.map",
+    "static/js/3.3f28057b.chunk.js": "/partymakers/static/js/3.3f28057b.chunk.js",
+    "static/js/3.3f28057b.chunk.js.map": "/partymakers/static/js/3.3f28057b.chunk.js.map",
+    "index.html": "/partymakers/index.html",
+    "static/css/main.6773ec51.chunk.css.map": "/partymakers/static/css/main.6773ec51.chunk.css.map",
+    "static/js/2.2b1f2ae8.chunk.js.LICENSE.txt": "/partymakers/static/js/2.2b1f2ae8.chunk.js.LICENSE.txt",
+    "static/media/SlidebarParty.css": "/partymakers/static/media/placemark.3a05d808.svg",
+    "static/media/QueryInput.css": "/partymakers/static/media/querySearch.a5520b95.svg",
+    "static/media/clipboardIcon.7ef8ac1a.webp": "/partymakers/static/media/clipboardIcon.7ef8ac1a.webp",
+    "static/media/facebookIcon.d55e082f.svg": "/partymakers/static/media/facebookIcon.d55e082f.svg",
+    "static/media/instagramIcon.bb256d01.svg": "/partymakers/static/media/instagramIcon.bb256d01.svg",
+    "static/media/logonew.e4b4b4a5.svg": "/partymakers/static/media/logonew.e4b4b4a5.svg",
+    "static/media/SlideBar.css": "/partymakers/static/media/triangleIcon.4da05c0c.svg",
+    "static/media/vkontakteIcon.42c11bcc.svg": "/partymakers/static/media/vkontakteIcon.42c11bcc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3dd2c2db.js",
+    "static/js/2.2b1f2ae8.chunk.js",
+    "static/css/main.6773ec51.chunk.css",
+    "static/js/main.6b0fcfea.chunk.js"
+  ]
+}
