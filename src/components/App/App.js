@@ -14,7 +14,8 @@ function App() {
 
   return (
     <>
-    <Switch>
+    <ProtectedRoute loggedIn={isLoggedIn} component={SelectParty} path="/search" />
+    {/* <Switch>
       <ProtectedRoute loggedIn={isLoggedIn} component={SelectParty} path="/search" />
       <ProtectedRoute loggedIn={isLoggedIn} component={PartyMaker} path="/make" />
       <Route path="/sign-up">
@@ -23,7 +24,7 @@ function App() {
       <Route path="/sign-in">
         <Login />
       </Route>
-    </Switch>
+    </Switch> */}
     </>
   );
 }
