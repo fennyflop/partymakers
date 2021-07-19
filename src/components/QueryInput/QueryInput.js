@@ -1,6 +1,6 @@
 import './QueryInput.css';
 // import queryIcon from '../../images/queryIcon.svg';
-import Y1 from '../../images/Y1.svg';
+import Y1 from '../../images/logonew.svg';
 import { useEffect } from 'react';
 
 const QueryInput = ({ handleSearchQuery, handleCloseResults, queryText, handleQueryChange }) => {

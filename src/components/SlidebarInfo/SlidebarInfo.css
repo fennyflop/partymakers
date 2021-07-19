@@ -3,7 +3,8 @@
     max-width: 500px;
     padding: 20px 5%;
     box-sizing: border-box;
-    background-color: #242c37;
+    /* background-color: #242c37; */
+    background-color: white;
     margin: 20px 0 10px;
     border-bottom: 1px solid rgba(0,0,0,.3);
     border-radius: 5px;
@@ -13,16 +14,17 @@
     line-height: 23px;
     font-weight: 500;
     margin: 0 0 4px;
-    color: white;
+    color: black;
 }
 .slidebar-info__description {
     margin: 0;
-    color: #999;
+    /* color: #999; */
+    color: black;
     font-size: 14px;
 }
 .slidebar-info__coordinates {
     margin: 5px 0 0 0;
-    color: #999;
+    color: black;
     font-size: 14px;
 }
 .slidebar-info__clipboard {

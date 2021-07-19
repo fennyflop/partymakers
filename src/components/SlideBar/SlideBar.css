@@ -9,7 +9,7 @@
     height: 100vh;
     top: 0;
     z-index: 99;
-
+    pointer-events: no;
 }
 .slidebar__toggler{
   border-radius: 5px;
@@ -46,7 +46,7 @@
   overflow-y: scroll;
   box-sizing: border-box;
   padding: 20px 10px 0;
-  background-color: #0b0e11;
+  background-color: #FABD44;
   position: relative;
   left: -410px;
   transition: all .2s ease-in-out;

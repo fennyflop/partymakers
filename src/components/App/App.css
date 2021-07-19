@@ -1,6 +1,6 @@
 .App {
     display: flex;
 }
-*{
-    pointer-events: auto; 
+* {
+    pointer-events: auto;
 }

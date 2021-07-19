@@ -6,7 +6,7 @@
     border: 0;
     outline: 0;
     display: flex;
-    background-color: #242c37;
+    background-color: white;
     position: relative;
     border-radius: 5px;
     /* border-bottom: 1px solid rgba(0,0,0,.3); */
@@ -17,12 +17,13 @@
     height: 70px;
     padding: 30px 0 0;
     outline: 0;
-    background-color: #242c37;
-    color: white;
+    background-color: white;
+    color: black;
+    /* color: white; */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     outline: none;
     text-align: center;
 }

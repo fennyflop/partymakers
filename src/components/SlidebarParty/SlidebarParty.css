@@ -10,7 +10,8 @@
     width: 100%;
     height: clamp(50px, fit-content, 70px);
     transition: all .1s ease-in-out;
-    background-color: #242c37;
+    /* background-color: #242c37; */
+    background-color: white;
     border-radius: 5px;
 }
 .slidebar-party__header {
@@ -23,9 +24,10 @@
     /* color: rgb(36,36,36); */
     font-size: 20px;
     line-height: 23px;
+    color: black;
     font-weight: 500;
     margin: 0;
-    color: white;
+    /* color: white; */
     align-self: center;
 }
 .slidebar-party__buttons {
@@ -63,6 +65,7 @@
     padding: 5px 15px 0 10px;
     display: flex;
     color: white;
+    color: black;
     align-items: center;
     justify-content: space-between;
 }
@@ -73,14 +76,16 @@
     font-weight: 500;
     color: #555;
     min-width: 75px;
+    color: black;
     width: 80%;
     max-height: 75px;
     word-break: normal;
-    color: white;
+    /* color: white; */
 }
 .slidebar-party__age {
     font-weight: 500;
     margin: 0;
+    color: black;
     border-bottom: 2px solid rgba(36,36,36,0.2);
 }
 .slidebar-party__age::after {
@@ -88,6 +93,7 @@
 }
 .slidebar-party__price {
     font-weight: 500;
+    color: black;
     margin: 0;
     text-align: end;
     word-break: keep-all;
@@ -98,4 +104,5 @@
     line-height: 16px;
     font-weight: 500;
     color: white;
+    color: black;
 }
